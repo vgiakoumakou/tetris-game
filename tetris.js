@@ -39,7 +39,7 @@ let dropInterval = 1000; //Drop the piece every 1s
 let lastTime = 0;
 
 function update(time = 0) {
-	
+
 	const deltaTime = time - lastTime;
 	lastTime = time;
 
@@ -57,6 +57,24 @@ const player = {
 	pos: {x:5, y: 5},
 	matrix: matrix,
 }
+
+document.addEventListener('keydown', event => {
+
+	// Arrow Left (piece moves left)
+	if (event.keyCode === 37) {
+		player.pos.x--;
+	}
+	// Arrow Right (piece moves right)
+	else if (event.keyCode === 39) {
+		player.pos.x++;
+	}
+	// Arrow Down (piece moves down manually)
+	else if (event.keyCode === 40) {
+		player.pos.y++;
+		dropCounter = 0; //we don't want another immediate drop
+	}
+
+});
 
 
 update();
