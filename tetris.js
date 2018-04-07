@@ -32,6 +32,10 @@ function drawMatrix(matrix, offset) {
 	});
 }
 
+function playerDrop() {
+	player.pos.y++;
+	dropCounter = 0; //we don't want another immediate drop
+}
 
 let dropCounter = 0;
 let dropInterval = 1000; //Drop the piece every 1s
@@ -45,8 +49,7 @@ function update(time = 0) {
 
 	dropCounter += deltaTime;
 	if (dropCounter > dropInterval) {
-		player.pos.y++;
-		dropCounter = 0;
+		playerDrop();
 	}
 
 	draw();
@@ -70,8 +73,7 @@ document.addEventListener('keydown', event => {
 	}
 	// Arrow Down (piece moves down manually)
 	else if (event.keyCode === 40) {
-		player.pos.y++;
-		dropCounter = 0; //we don't want another immediate drop
+		playerDrop();
 	}
 
 });
