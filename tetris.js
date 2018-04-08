@@ -65,11 +65,11 @@ function merge(arena, player) {
 
 function playerDrop() {
 	player.pos.y++;
-	if (collide(arena, player) {
+	if (collide(arena, player)) {
 		player.pos.y--;
 		merge(arena, player);
 		player.pos.y = 0;
-	})
+	}
 	dropCounter = 0; //we don't want another immediate drop
 }
 
