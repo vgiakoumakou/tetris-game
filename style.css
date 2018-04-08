@@ -1,0 +1,6 @@
+/* Canvas styling */
+#tetris {	
+    margin: 50px auto;
+    display: block;
+    box-shadow: 3px 3px 8px 3px lightgray;
+}
